@@ -1,0 +1,3 @@
+dockerconfig/
+docker-compose.yml
+.dockerignore

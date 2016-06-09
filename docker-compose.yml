@@ -1,0 +1,24 @@
+web:
+  image: john3kuae/phalcon-api:1.0
+  ports:
+          - "80:80"
+  volumes:
+          - ".:/var/www"
+  links:
+    - rethinkdb
+    - mysql
+rethinkdb:
+    image: rethinkdb
+    ports:
+        - "8080"
+        - "28015"
+        - "29015"
+mysql:
+  image: mysql:5.7
+  ports:
+    - "3307:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: 123456
+    MYSQL_USER: dev
+    MYSQL_PASSWORD: 123456
+    MYSQL_DATABASE: phalcon_api
